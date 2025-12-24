@@ -1,0 +1,19 @@
+
+.ls(@font, @value) {
+	letter-spacing: (@font*@value/1000px);
+}
+.lse(@value) {
+	letter-spacing: (@value/1000em);
+}
+.t-scale(@value) {
+    transform: scale(@value);
+}
+.t-rotate(@value) {
+    transform: rotate(@value);
+}
+.t-translate(@value-x, @value-y) {
+    transform: translate(@value-x, @value-y);
+}
+.t-origin(@value) {
+    transform-origin: @value;
+}

@@ -1,0 +1,66 @@
+/* ----------------------------------- *\
+			animation
+\* ----------------------------------- */
+.item-animation {
+    transition-property: transform, opacity;
+    transition-duration: 0.8s;
+    transition-timing-function: ease;
+    /* opacity: 0;
+    &.item-active {
+        opacity: 1;
+        -webkit-transform: translate(0,0);
+        -ms-transform: translate(0,0);
+        transform: translate(0,0);
+    } */
+}
+
+.item-aleft {
+	&:not(.item-active) {
+		-webkit-transform: translateX(-100px);
+		-ms-transform: translateX(-100px);
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+}
+.item-aright {
+	&:not(.item-active) {
+		opacity: 0;
+		-webkit-transform: translateX(100px);
+		-ms-transform: translateX(100px);
+		transform: translateX(100px);
+	}
+}
+.item-abottom {
+	&:not(.item-active) {
+			opacity: 0;
+		-webkit-transform: translateY(-100px);
+		-ms-transform: translateY(-100px);
+		transform: translateY(-100px);
+	}
+}
+.item-atop {
+	&:not(.item-active) {
+			opacity: 0;
+		-webkit-transform: translateY(100px);
+		-ms-transform: translateY(100px);
+		transform: translateY(100px);
+	}
+}
+.item-animation-second {
+    transition-delay: 0.1s;
+}
+.item-animation-third {
+    transition-delay: 0.2s;
+}
+.item-animation-four {
+    transition-delay: 0.3s;
+}
+.item-animation-five {
+    transition-delay: 0.4s;
+}
+.item-animation-six {
+    transition-delay: 0.5s;
+}
+.item-animation-seven {
+    transition-delay: 0.6s;
+}
