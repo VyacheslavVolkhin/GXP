@@ -369,6 +369,9 @@ html.with-fancybox body.hide-scrollbar {
 	.header {
 		.action-user {
 			max-width: calc(100% - 135px);
+			&:has(.type-out) {
+				max-width: inherit;
+			}
 		}
 	}
 	.side-active {
@@ -414,6 +417,28 @@ html.with-fancybox body.hide-scrollbar {
 @media (max-width: 429px) {
 	.header {
 		.elm-panel-user {
+			&.type-out {
+				gap: 2px;
+				.panel-title-wrap {
+					.btn {
+						padding: 0 8px;
+					}
+				}
+				.panel-action-wrap {
+					height: auto;
+					.btn {
+						width: auto;
+						padding: 0 8px;
+						min-width: 0;
+						&:before {
+							display: none;
+						}
+						.button-title {
+							display: block;
+						}
+					}
+				}
+			}
 			.panel-title-wrap {
 				max-width: calc(100% - 30px);
 			}
@@ -550,6 +575,15 @@ html.with-fancybox body.hide-scrollbar {
 			.logo-title {
 				font-size: 18px;
 			}
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.content-wrap {
+		&:only-child {
+			max-width: 1175px;;
+			margin: 0 auto;
+			width: 100%;
 		}
 	}
 }

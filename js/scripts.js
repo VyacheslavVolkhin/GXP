@@ -5,6 +5,133 @@ document.addEventListener("DOMContentLoaded", function() {
 		//settings
 	});
 
+	//mask phone
+	let snInput = document.querySelectorAll('.field-snils input');
+	if (snInput) {
+		let im = new Inputmask("9 9 9 9 9 9 9 9 9 9");
+		im.mask(snInput);
+	}
+	let telInputs = document.querySelectorAll('input[type="tel"]');
+	if (telInputs) {
+		let im = new Inputmask("+7 (999) 999-99-99");
+		im.mask(telInputs);
+	}
+    const phoneInput = document.querySelector('input[type="tel"]');
+	const emailInput = document.querySelector('input[type="email"]');
+    if (phoneInput) {
+        const phoneContainer = phoneInput.closest('.frm-field-input');
+        
+        phoneInput.addEventListener('input', function() {
+            let phone = this.value.replace(/[^\d+]/g, '');
+            
+            if (phone.startsWith('8')) {
+                phone = '+7' + phone.slice(1);
+            } else if (phone.startsWith('7') && !phone.startsWith('+7')) {
+                phone = '+7' + phone.slice(1);
+            }
+            
+            this.value = phone;
+            const isValid = phone.replace(/\D/g, '').length === 11;
+            
+            updateValidationClass(phoneContainer, isValid);
+        });
+    }
+    if (emailInput) {
+        const emailContainer = emailInput.closest('.frm-field-input');
+        
+        emailInput.addEventListener('input', function() {
+            const email = this.value.trim();
+            const isValid = validateEmail(email);
+            
+            updateValidationClass(emailContainer, isValid);
+        });
+        
+        emailInput.addEventListener('blur', function() {
+            const email = this.value.trim();
+            const isValid = validateEmail(email);
+            
+            updateValidationClass(emailContainer, isValid);
+        });
+    }
+	function updateValidationClass(container, isValid) {
+		const input = container.querySelector('input');
+		const hasValue = input.value.trim().length > 0;
+		const isAutofilled = input.matches(':-webkit-autofill');
+		const shouldBeVerified = isValid || isAutofilled;
+		if (shouldBeVerified) {
+			container.classList.add('inp-verify');
+			container.classList.remove('inp-error');
+			if (isAutofilled) {
+				container.classList.add('inp-autofilled');
+			} else {
+				container.classList.remove('inp-autofilled');
+			}
+		} else {
+			container.classList.remove('inp-verify', 'inp-autofilled');
+			
+			if (hasValue) {
+				container.classList.add('inp-error');
+			} else {
+				container.classList.remove('inp-error');
+			}
+		}
+	}
+    function validateEmail(email) {
+        if (!email) return false;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+	//select toggle content visibility
+	  const inputs = document.querySelectorAll(
+		"input[data-content], input[data-content-check], input[data-content-uncheck]"
+	  );
+	
+	  inputs.forEach(function (input) {
+		toggleContent(input);
+		});
+	
+	  inputs.forEach((input) => {
+		input.addEventListener("click", function () {
+		  document.querySelectorAll(".frm-content").forEach((content) => {
+			content.classList.remove("active");
+				});
+	
+		  inputs.forEach(toggleContent);
+			});
+		});
+	
+	  document.querySelectorAll(".btn[data-content]").forEach((button) => {
+		button.addEventListener("click", function () {
+		  let dataContent = this.getAttribute("data-content");
+		  this.disabled = true;
+		  document
+			.querySelectorAll('.frm-content[data-content="' + dataContent + '"]')
+			.forEach((content) => {
+			  content.classList.add("active");
+				});
+		  return false;
+			});
+		});
+	
+	  function toggleContent(input) {
+		let selectContent;
+		if (input.checked) {
+		  selectContent =
+			input.getAttribute("data-content-check") ||
+			input.getAttribute("data-content");
+			} else {
+		  selectContent = input.getAttribute("data-content-uncheck");
+			}
+		document
+		  .querySelectorAll('.frm-content[data-content="' + selectContent + '"]')
+		  .forEach((content) => {
+			content.classList.add("active");
+			});
+		}
+
+
+
 	//side toggle
 	const buttons = document.querySelectorAll('.js-btn-side-toggle');
 	buttons.forEach(button => {
