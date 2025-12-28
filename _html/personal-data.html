@@ -38,9 +38,10 @@
 										<div class="frm-section-wrap">
 											<div class="frm-row row-user">
 												<div class="frm-field">
-													<div class="frm-field-user">
+													<div class="frm-field-user js-field-file-user">
+														<input type="file" id="fileInput" accept="image/*" style="display: none;">
 														<div class="elm-photo photo-cover photo-user"></div>
-														<a href="" class="btn button-border">
+														<a href="" class="btn button-border button-user-photo-upload">
 															<div class="button-ico">
 																<img src="./img/icons/photo.svg" alt="">
 															</div>
@@ -77,7 +78,7 @@
 												<div class="frm-field">
 													<div class="field-title">Корпоративный Email</div>
 													<div class="frm-field-input">
-														<input type="text" class="form-input" value="ivan.petrov@company.com">
+														<input type="email" class="form-input" value="ivan.petrov@company.com">
 													</div>
 												</div>
 											</div>
@@ -85,7 +86,7 @@
 												<div class="frm-field">
 													<div class="field-title">Корпоративный Телефон</div>
 													<div class="frm-field-input">
-														<input type="text" class="form-input" value="+7 (999) 123-45-67">
+														<input type="tel" class="form-input" value="+7 (999) 123-45-67">
 													</div>
 												</div>
 											</div>
@@ -193,12 +194,17 @@
 													</a>
 												</div>
 												<div class="frm-field field-half">
-													<a href="" class="btn button-border button-light">
-														<div class="button-ico">
-															<img src="./img/icons/upload.svg" alt="">
+													<div class="frm-field-upload-button">
+														<div class="field-upload-inner js-field-file-multiple">
+															<input type="file" class="js-field-input" multiple="" accept="" max="5">
+															<a href="" class="btn button-border button-light button-upload js-file-button-attach">
+																<div class="button-ico">
+																	<img src="./img/icons/upload.svg" alt="">
+																</div>
+																<div class="button-title">Загрузить подписанный файл</div>
+															</a>
 														</div>
-														<div class="button-title">Загрузить подписанный файл</div>
-													</a>
+													</div>
 												</div>
 											</div>
 											<div class="frm-row row-download">
@@ -212,12 +218,17 @@
 													</a>
 												</div>
 												<div class="frm-field field-half">
-													<a href="" class="btn button-border button-light">
-														<div class="button-ico">
-															<img src="./img/icons/upload.svg" alt="">
+													<div class="frm-field-upload-button">
+														<div class="field-upload-inner js-field-file-multiple">
+															<input type="file" class="js-field-input" multiple="" accept="" max="5">
+															<a href="" class="btn button-border button-light button-upload js-file-button-attach">
+																<div class="button-ico">
+																	<img src="./img/icons/upload.svg" alt="">
+																</div>
+																<div class="button-title">Загрузить подписанный файл</div>
+															</a>
 														</div>
-														<div class="button-title">Загрузить подписанный файл</div>
-													</a>
+													</div>
 												</div>
 											</div>
 										</div>

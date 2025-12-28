@@ -40,15 +40,18 @@
                 </div>
                 <div class="actions-inner-wrap">
                     <div class="action-wrap action-user">
-                        <div class="elm-panel-user type-out">
+                        <div class="elm-panel-user">
                             <div class="panel-title-wrap">
-                                <a href="" class="btn js-popup-open" data-popup="popup-auth">
-                                    <div class="button-title">Регистрация</div>
+                                <a href="" class="btn button-link">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/user.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Петровский Иван Иванович</div>
                                 </a>
                             </div>
                             <div class="panel-action-wrap">
-                                <a href="" class="btn button-att">
-                                    <div class="button-title">Вход</div>
+                                <a href="" class="btn">
+                                    <div class="button-title">Выход</div>
                                 </a>
                             </div>
                         </div>
@@ -66,6 +69,9 @@
                     <div class="action-wrap">
                         <a href="" class="btn-action-ico ico-glasses"></a>
                     </div>
+                    <div class="action-wrap action-menu">
+                        <a href="" class="btn-action-ico ico-menu button-active-toggle js-btn-side-toggle"></a>
+                    </div>
                 </div>
             </div>
         </header>
@@ -82,125 +88,95 @@
 
                     <!--sections-box-->
                     <div class="sections-box">
-
                         <!--section-inner-wrap-->
-                        <div class="section-inner-wrap section-form-content form-box">
-                            <div class="section-title-wrap text-center">
-                                <div class="section-title title-main">Регистрация <br>нового пользователя</div>
-                            </div>
-                            <div class="section-content-wrap">
-                                <form action="/" class="form-inner-wrap">
-                                    <div class="frm-row">
-                                        <div class="frm-field">
-                                            <div class="field-title">Страна</div>
-                                            <div class="frm-field-input">
-                                                <select class="form-input" required>
-                                                    <option selected disabled hidden value="">Выберите страну</option><!--placeholder-->
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                </select>
-                                            </div>
-                                            <div class="frm-select">
-                                                <input type="checkbox" id="form01">
-                                                <label for="form01">В данный момент не работаю</label>
-                                            </div>
-                                            <div class="frm-select">
-                                                <input type="checkbox" id="form02" checked>
-                                                <label for="form02">Студент</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row">
-                                        <div class="frm-field field-half">
-                                            <div class="field-title">Сфера деятельности</div>
-                                            <div class="frm-field-input">
-                                                <select class="form-input" required>
-                                                    <option selected disabled hidden value="">Выберите из списка</option><!--placeholder-->
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="frm-field field-half">
-                                            <div class="field-title">Направление деятельности</div>
-                                            <div class="frm-field-input">
-                                                <select class="form-input" required>
-                                                    <option selected disabled hidden value="">Выберите из списка</option><!--placeholder-->
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row">
-                                        <div class="frm-field">
-                                            <div class="field-title">ФИО</div>
-                                            <div class="frm-field-input">
-                                                <input type="text" class="form-input" placeholder="Ваше ФИО целиком">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row">
-                                        <div class="frm-field field-half">
-                                            <div class="field-title">Личный Email*</div>
-                                            <div class="frm-field-input ico-email">
-                                                <input type="email" class="form-input" placeholder="email@company.com">
-                                            </div>
-                                        </div>
-                                        <div class="frm-field field-half">
-                                            <div class="field-title">Личный телефон*</div>
-                                            <div class="frm-field-input ico-phone">
-                                                <input type="tel" class="form-input" placeholder="+7 (999) 999-99-99">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row">
-                                        <div class="frm-field field-half">
-                                            <div class="field-title">Рабочий Email</div>
-                                            <div class="frm-field-input">
-                                                <input type="text" class="form-input" placeholder="email@company.com">
-                                            </div>
-                                        </div>
-                                        <div class="frm-field field-half">
-                                            <div class="field-title">Присылать рассылку на</div>
-                                            <div class="frm-field-input">
-                                                <select class="form-input" required>
-                                                    <option selected disabled hidden value="">Рабочий email</option><!--placeholder-->
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                    <option>Пункт списка</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row-submit">
-                                        <div class="frm-field field-info">*Для сохранения ЛК при смене работы</div>
-                                        <div class="frm-field field-submit">
-                                            <button type="submit" class="btn">
-                                                <div class="button-title">Зарегистрироваться</div>
-                                                <div class="button-ico">
-                                                    <img src="./img/icons/send.svg" alt="">
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="section-inner-wrap">
+                            333
                         </div>
                         <!--/section-inner-wrap-->
-
                     </div>
                     <!--/sections-box-->
 
                 </div>
                 <!--/content-wrap-->
+
+                <!--side-wrap-->
+                <div class="side-wrap">
+                    <a href="" class="btn-side-popup btn-action-ico ico-close js-btn-side-toggle"></a>
+                    <!--side-profile-box-->
+                    <div class="side-profile-box">
+                        <div class="photo-inner-wrap">
+                            <div class="elm-photo photo-cover photo-user"></div>
+                        </div>
+                        <div class="info-inner-wrap">
+                            <div class="section-title">Иван Петровский</div>
+                            <div class="section-info">ivan.petrov@company.com</div>
+                        </div>
+                    </div>
+                    <!--/side-profile-box-->
+                    <!--side-menu-box-->
+                    <div class="side-menu-box">
+                        <ul class="menu">
+                            <li>
+                                <a href="" class="btn-menu active">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu01.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Главная</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="btn-menu">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu02.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Обучение</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="btn-menu">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu03.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Преподавателю</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="btn-menu">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu04.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Мероприятия</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="btn-menu">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu05.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Эксперту</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="btn-menu">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu06.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Управление обучением</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="btn-menu">
+                                    <div class="button-ico">
+                                        <img src="./img/icons/menu07.svg" alt="">
+                                    </div>
+                                    <div class="button-title">Компетенции</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/side-menu-box-->
+                </div>
+                <!--/side-wrap-->
 
             </div>
             <!--/content-outer-wrap-->

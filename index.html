@@ -10,11 +10,13 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/choices.min.css">
     <link rel="stylesheet" href="./css/fancybox.css">
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./css/style.min.css">
     <script src="./js/swiper-bundle.min.js" defer></script>
     <script src="./js/fancybox.umd.js" defer></script>
+    <script src="./js/choices.min.js" defer></script>
     <script src="./js/inputmask.min.js" defer></script>
     <script src="./js/multifiles.js" defer></script>
     <script src="./js/scripts.js" defer></script>
@@ -112,6 +114,7 @@
             <ul class="ul-menu">
                 <li class="li-sep">Основные страницы</li>
                 <li><a href="main.html">Главная</a></li>
+                <li><a href="myprogramms.html">Мои программы обучения</a></li>
                 <li><a href="personal-data.html">Личная информация</a></li>
                 <li><a href="anketa01.html">Анкета слушателя</a></li>
                 <li><a href="reg01.html">Регистрация 1</a></li>
@@ -120,8 +123,9 @@
                 <li><a href="reg04.html">Регистрация 4</a></li>
                 <li><a href="reg05.html">Регистрация 5</a></li>
 
-                <!-- <li class="li-sep">Всплывающие окна</li>
-					<li><a href="" class="js-popup-open" data-popup="popup-callback">Popup callback</a></li> -->
+                <li class="li-sep">Всплывающие окна</li>
+                <li><a href="" class="js-popup-open" data-popup="popup-auth">Popup auth</a></li>
+                <li><a href="" class="js-popup-open" data-popup="popup-password">Popup password</a></li>
             </ul>
             <br><br><br><br><br>
         </div>
@@ -197,6 +201,150 @@
 
     </div>
     <!-- /wrap -->
+
+    <!--popup-outer-box-->
+    <div class="popup-outer-box" id="popup-auth">
+        <div class="popup-box">
+            <a href="" class="btn-popup-close btn-action-ico ico-close js-popup-close"></a>
+            <div class="popup-title-wrap">
+                <div class="popup-title">Форма</div>
+            </div>
+            <div class="popup-content-wrap">
+                <form action="/" class="form-box">
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="field-title">ФИО</div>
+                            <div class="frm-field-input" data-error="Вы забыли заполнить поле">
+                                <input type="text" class="form-input" required placeholder="Ваше ФИО целиком">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="field-title">Email</div>
+                            <div class="frm-field-input ico-email" data-error="Ошибка">
+                                <input type="email" class="form-input" required placeholder="email@company.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="field-title">Телефон</div>
+                            <div class="frm-field-input ico-phone">
+                                <input type="tel" class="form-input" required placeholder="+7 (999) 999-99-99">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="field-title">Страна</div>
+                            <div class="frm-field-input">
+                                <input type="text" class="form-input" required placeholder="Российская Федерация">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="field-title">Населенный пункт</div>
+                            <div class="frm-field-input">
+                                <input type="text" class="form-input" required placeholder="Выберите из списка">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="field-title">Текст сообщения</div>
+                            <div class="frm-field-input">
+                                <textarea class="form-input" required placeholder="Текст"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="frm-field-upload-small">
+                                <div class="field-upload-inner js-field-file-multiple">
+                                    <input type="file" class="js-field-input" multiple="" accept="" max="5">
+                                    <a href="" class="button-upload js-file-button-attach">
+                                        <div class="button-ico">
+                                            <img src="./img/icons/attach.svg" alt="">
+                                        </div>
+                                        <div class="button-title">Прикрепить файлы</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row-submit">
+                        <div class="frm-field">
+                            <div class="frm-select">
+                                <input type="radio" name="popup01" id="popup01-01" checked required>
+                                <label for="popup01-01"><b>Мужчина</b></label>
+                            </div>
+                            <div class="frm-select">
+                                <input type="radio" name="popup01" id="popup01-02" required>
+                                <label for="popup01-02"><b>Женщина</b></label>
+                            </div>
+                            <div class="frm-select">
+                                <input type="checkbox" id="popup01-03" required>
+                                <label for="popup01-03"><b>Даю согласие на обработку <a href="" class="link-main">Персональных данных</a></b></label>
+                            </div>
+                            <div class="frm-select">
+                                <input type="checkbox" id="popup01-04" checked required>
+                                <label for="popup01-04"><b>Даю согласие на Оферту</b></label>
+                            </div>
+                        </div>
+                        <div class="frm-field field-submit">
+                            <button type="submit" class="btn">
+                                <div class="button-title">Отправить</div>
+                                <div class="button-ico">
+                                    <img src="./img/icons/send.svg" alt="">
+                                </div>
+                            </button>
+                        </div>
+                        <div class="frm-field field-error">
+                            <div class="frm-message-error">Проверьте, пожалуйста, форму, вы где-то ошиблись</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!--/popup-outer-box-->
+
+
+    <!--popup-outer-box-->
+    <div class="popup-outer-box" id="popup-password">
+        <div class="popup-box">
+            <a href="" class="btn-popup-close btn-action-ico ico-close js-popup-close"></a>
+            <div class="popup-title-wrap">
+                <div class="popup-title">Восстановить пароль</div>
+                <p>Введите номер телефона или email, <br>указанный при регистрации и мы пришлем вам код для авторизации</p>
+            </div>
+            <div class="popup-content-wrap">
+                <form action="/" class="form-box">
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="frm-field-input" data-error="Ошибка">
+                                <input type="email" class="form-input text-center" required placeholder="email@company.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row-submit">
+                        <div class="frm-field field-submit">
+                            <button type="submit" class="btn">
+                                <div class="button-title">Отправить</div>
+                                <div class="button-ico">
+                                    <img src="./img/icons/send.svg" alt="">
+                                </div>
+                            </button>
+                        </div>
+                        <div class="frm-field field-error">
+                            <div class="frm-message-error">Проверьте, пожалуйста, форму, вы где-то ошиблись</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!--/popup-outer-box-->
 
 
 

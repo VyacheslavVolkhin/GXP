@@ -10,7 +10,122 @@
 @import 'common.less';
 @import 'fonts.less';
 /* ----------------------------------- *\
-			icons
+			popup
 \* ----------------------------------- */
-//@import 'icons.less';
-//@import 'animate.less';
+body.popup-open {
+	overflow: hidden;
+}
+.popup-outer-box {
+	display: none;
+	padding: 20px var(--paddingContainer);
+	animation: fadein ease 0.2s;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 100;
+	background: fade(#000, 70);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+	&.active {
+		display: flex;
+	}
+}
+.popup-box {
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+	overflow: hidden;
+	width: 620px;
+	max-width: 100%;
+	max-height: inherit;
+	background-color: #fff;
+	z-index: 20;
+	border-radius: 64px;
+	padding: 60px;
+	box-shadow: 0 6px 14px -6px rgba(24, 39, 75, 0.12), 0 10px 32px -4px rgba(24, 39, 75, 0.10);
+	.popup-title-wrap, .popup-footer-wrap {
+		width: 100%;
+		flex-shrink: 0;
+	}
+	.popup-title-wrap {
+		margin-bottom: 15px;
+		text-align: center;
+		font-size: 2rem;
+		line-height: 1.45;
+		color: var(--clr-base);
+	}
+	.popup-content-wrap {
+		width: 100%;
+	}
+	.popup-title {
+		font-size: 48px;
+		font-weight: 500;
+		line-height: 1.25;
+		.ftitle;
+		margin: 0 0 15px 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.btn-popup-close {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		z-index: 2;
+	}
+	.btn-action-ico {
+		&.ico-close {
+			&:not(:hover) {
+				&:before, &:after {
+					filter: var(--filterAttToBase);
+				}
+			}
+		}
+	}
+	.form-box {
+		margin: 0;
+		padding: 0;
+		.frm-row-submit {
+			padding-top: 0;
+			.btn {
+				min-width: 206px;;
+			}
+		}
+	}
+}
+@media (max-width: 1399px) {
+	.popup-box {
+		padding: 30px;
+		width: 560px;
+		border-radius: var(--mainRadius);
+		.popup-title {
+			font-size: 28px;
+		}
+		.btn-popup-close {
+			top: 10px;right: 10px;
+		}
+	}
+}
+@media (max-width: 1023px) {
+	.popup-box {
+		padding: 20px 15px;
+		width: 400px;
+		.btn-popup-close {
+			top: 5px;right: 5px;
+		}
+	}
+}

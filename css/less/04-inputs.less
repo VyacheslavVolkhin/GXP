@@ -23,7 +23,6 @@
 }
 .form-input {
     text-overflow: ellipsis;
-	height: 56px;
 	border-radius: var(--mediumRadius);
 	border: 1px solid #FAFAFA;
 	background: #FAFAFA;
@@ -36,7 +35,7 @@
 	padding: 0 14px;
 	font-size: 14px;
 	font-weight: 500;
-	color: var(--clr-base-light);
+	color: var(--clr-base);
 	&:focus, &:not(:placeholder-shown), &.inp-valid {
 	}
 	&.inp-error, &:user-invalid {
@@ -44,7 +43,9 @@
 	}
 }
 textarea.form-input {
-
+	height: 170px;
+	padding-top: 14px;
+	line-height: 1.45;
 }
 select.form-input, input.form-input-select {
     display: block;

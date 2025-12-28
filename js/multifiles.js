@@ -68,7 +68,7 @@ function addFileItem(file, container, fileInput) {
     fileItem.innerHTML = `
         <div class="frm-field-file type-att file-active">
             <div class="file-inner-wrap">
-                <div class="file-name">${file.name} ${fileSize}</div>
+                <div class="file-name">${file.name} <span>${fileSize}</span></div>
                 <a href="#" class="btn-action-ico ico-trash button-file-del"></a>
             </div>
         </div>
@@ -201,3 +201,44 @@ function setupDragAndDrop(uploadField, fileInput) {
         uploadField.classList.remove('highlight');
     }
 }
+
+
+// фото для пользователя
+document.addEventListener('click', function(e) {
+	if (e.target.closest('.button-user-photo-upload')) {
+		e.preventDefault();
+		const block = e.target.closest('.js-field-file-user');
+		const fileInput = block.querySelector('input[type="file"]');
+		fileInput.click();
+	}
+});
+document.addEventListener('change', function(e) {
+	if (e.target.type === 'file' && e.target.closest('.js-field-file-user')) {
+		const file = e.target.files[0];
+		const block = e.target.closest('.js-field-file-user');
+		const photoContainer = block.querySelector('.elm-photo');
+		
+		if (file && file.type.match('image.*')) {
+			const reader = new FileReader();
+			
+			reader.onload = function(event) {
+				// Удаляем старое изображение
+				const existingImg = photoContainer.querySelector('img');
+				if (existingImg) existingImg.remove();
+				
+				// Создаем новое
+				const img = document.createElement('img');
+				img.src = event.target.result;
+				img.alt = 'Фото пользователя';
+				img.style.width = '100%';
+				img.style.height = '100%';
+				img.style.objectFit = 'cover';
+				
+				photoContainer.appendChild(img);
+				photoContainer.classList.add('has-photo');
+			};
+			
+			reader.readAsDataURL(file);
+		}
+	}
+});

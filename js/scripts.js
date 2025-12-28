@@ -5,6 +5,30 @@ document.addEventListener("DOMContentLoaded", function() {
 		//settings
 	});
 
+
+	//select
+	const singleSelects = document.querySelectorAll('.frm-field-input select:not([multiple])');
+	const multiSelects = document.querySelectorAll('.frm-field-input select[multiple]');
+	if (singleSelects) {
+		singleSelects.forEach(function(select) {
+			new Choices(select, {
+				searchEnabled: true,
+				itemSelectText: '',
+				shouldSort: false
+			});
+		});
+	}
+	if (multiSelects) {
+		multiSelects.forEach(function(select) {
+			new Choices(select, {
+				searchEnabled: true,
+				removeItemButton: true, 
+				itemSelectText: '',
+				shouldSort: false
+			});
+		});
+	}
+
 	//mask phone
 	let snInput = document.querySelectorAll('.field-snils input');
 	if (snInput) {
