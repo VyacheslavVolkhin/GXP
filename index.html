@@ -124,7 +124,8 @@
                 <li><a href="reg05.html">Регистрация 5</a></li>
 
                 <li class="li-sep">Всплывающие окна</li>
-                <li><a href="" class="js-popup-open" data-popup="popup-auth">Popup auth</a></li>
+                <li><a href="" class="js-popup-open" data-popup="popup-auth">Popup reg</a></li>
+                <li><a href="" class="js-popup-open" data-popup="popup-login">Popup login</a></li>
                 <li><a href="" class="js-popup-open" data-popup="popup-password">Popup password</a></li>
             </ul>
             <br><br><br><br><br>
@@ -293,6 +294,50 @@
                                 <label for="popup01-04"><b>Даю согласие на Оферту</b></label>
                             </div>
                         </div>
+                        <div class="frm-field field-submit">
+                            <button type="submit" class="btn">
+                                <div class="button-title">Отправить</div>
+                                <div class="button-ico">
+                                    <img src="./img/icons/send.svg" alt="">
+                                </div>
+                            </button>
+                        </div>
+                        <div class="frm-field field-error">
+                            <div class="frm-message-error">Проверьте, пожалуйста, форму, вы где-то ошиблись</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!--/popup-outer-box-->
+    <!--popup-outer-box-->
+    <div class="popup-outer-box" id="popup-login">
+        <div class="popup-box">
+            <a href="" class="btn-popup-close btn-action-ico ico-close js-popup-close"></a>
+            <div class="popup-title-wrap">
+                <div class="popup-title">Авторизация</div>
+                <p>Введите номер телефона или email, <br>указанный при регистрации</p>
+            </div>
+            <div class="popup-content-wrap">
+                <form action="/" class="form-box">
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="frm-field-input" data-error="Ошибка">
+                                <input type="email" class="form-input text-center" required placeholder="email@company.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field">
+                            <div class="frm-field-input" data-error="Ошибка">
+                                <input type="password" class="form-input text-center" required placeholder="Пароль">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="frm-field field-link">Забыли пароль? <a href="" class="js-popup-open" data-popup="popup-password">Напомнить</a></div>
+                    </div>
+                    <div class="frm-row-submit">
                         <div class="frm-field field-submit">
                             <button type="submit" class="btn">
                                 <div class="button-title">Отправить</div>

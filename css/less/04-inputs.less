@@ -183,6 +183,35 @@ select.form-input:required:invalid {
 		padding: 0;
 	}
 }
+.button-tab {
+	height: auto;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: -0.01em;
+	padding: 8px 12px;
+	border-radius: 50px;
+	border: none;
+	background: none;
+	font-weight: bold;
+	color: var(--clr-base);
+	justify-content: center;
+	align-items: center;
+	.button-title {
+		text-align: center;
+		white-space: normal
+	}
+	.ftext;
+	&.active {
+		padding-left: 20px;
+		padding-right: 20px;
+		background: var(--clr-att);
+		color: #fff;
+	}
+	&:hover {
+		background: none;
+		color: var(--clr-att);
+	}
+}
 .button-att {
 	background-color: #41C6FF;
 	border-color: #41C6FF;
@@ -369,6 +398,16 @@ select.form-input:required:invalid {
 			background-image: url(../img/icons/button-download.svg);
 		}
 	}
+	&.ico-calendar {
+		&:before {
+			background-image: url(../img/icons/calendar.svg);
+		}
+	}
+	&.ico-calendar-event {
+		&:before {
+			background-image: url(../img/icons/calendar-event.svg);
+		}
+	}
     &.ico-arrow {
         z-index: 20;
         cursor: pointer;
@@ -458,10 +497,24 @@ select.form-input:required:invalid {
         display: block;
     }
 }
-@media (min-width: 1024px) {
+@media (max-width: 419px) {
+	.button-tab {
+		&.active {
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+	}
+}
+@media (min-width: 768px) {
 	.form-input {
 		height: 56px;
 		font-size: 18px;
 		font-weight: 400;
+	}
+	.button-tab {
+		font-size: 16px;
+		line-height: 30px;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
