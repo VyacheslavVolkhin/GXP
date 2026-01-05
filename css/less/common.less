@@ -1021,6 +1021,22 @@ table {
 		}
 	}
 }
+.slider-actions-wrap {
+	margin-top: 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.button-slider {
+		width: 24px;height: 24px;
+		flex-shrink: 0;
+	}
+	.slider-pagination {
+		flex: 1;
+		max-width: calc(100% - 48px);
+		justify-content: center;
+		margin: 0 !important;
+	}
+}
 .slider-wrap {
 	margin: 0 calc(-1 * var(--gapMainHalf));
 }

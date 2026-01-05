@@ -6,6 +6,139 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 
+	//textarea autoresize
+	function autoResizeTextarea(textarea) {
+		textarea.style.height = 'auto';
+		const totalHeight = textarea.scrollHeight + 30;
+		textarea.style.height = totalHeight + 'px';
+	}
+	const textareas = document.querySelectorAll('.auto-resize-textarea');
+	if (textareas) {
+		textareas.forEach(textarea => {
+		autoResizeTextarea(textarea);
+		textarea.addEventListener('input', function() {
+			autoResizeTextarea(this);
+		});
+		window.addEventListener('load', () => autoResizeTextarea(textarea));
+		window.addEventListener('resize', () => autoResizeTextarea(textarea));
+		});
+		function observeTextareas() {
+			const observer = new MutationObserver(function(mutations) {
+				mutations.forEach(function(mutation) {
+				if (mutation.addedNodes.length) {
+					mutation.addedNodes.forEach(function(node) {
+					if (node.nodeType === 1) { // Element node
+						const newTextareas = node.querySelectorAll ? 
+						node.querySelectorAll('.auto-resize-textarea') : [];
+						if (node.matches && node.matches('.auto-resize-textarea')) {
+						newTextareas.push(node);
+						}
+						newTextareas.forEach(textarea => {
+						autoResizeTextarea(textarea);
+						textarea.addEventListener('input', function() {
+							autoResizeTextarea(this);
+						});
+						});
+					}
+					});
+				}
+				});
+			});
+			observer.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
+		}
+	}
+	// Запускаем observer если нужно отслеживать динамически добавленные элементы
+	// observeTextareas();
+
+
+	//video
+	const btnVideo = document.querySelectorAll(".js-btn-video");
+	for (let i = 0; i < btnVideo.length; i++) {
+	  btnVideo[i
+		].addEventListener("click", function (e) {
+		console.log('test')
+		const videoURL = this.closest('.item-tile-video').dataset.video;
+		this.closest('.item-tile-video').classList.add("active");
+		this.closest('.item-tile-video').innerHTML += `<iframe width="100%" height="100%" src="${videoURL}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>`;
+		e.preventDefault();
+		});
+	}
+
+	//form input clear
+	const inputFields = document.querySelectorAll(".frm-field-input .form-input");
+	const clearButtons = document.querySelectorAll(".button-field-clear");
+	function checkInputStatus(inputField) {
+		const form = inputField.closest(".frm-field-input");
+		if (inputField.value.length > 0) {
+			form.classList.add("inp-valid");
+		} else {
+			form.classList.remove("inp-valid");
+		}
+	}
+	if (inputFields) {
+		inputFields.forEach(inputField => {
+			checkInputStatus(inputField);
+		});
+		for (let i = 0; i < inputFields.length; i++) {
+			const inputField = inputFields[i];
+			
+			inputField.addEventListener("input", function () {
+				checkInputStatus(inputField);
+			});
+		}
+		for (let i = 0; i < clearButtons.length; i++) {
+			const clearButton = clearButtons[i];
+			clearButton.addEventListener("click", function (event) {
+				const input = this.closest(".frm-field-input").querySelector(".form-input");
+				input.value = "";
+				checkInputStatus(input);
+				event.preventDefault();
+			});
+		}
+	}
+
+
+	//btn tgl and add
+	let tglButtons = document.querySelectorAll('.js-btn-tgl')
+	let addButtons = document.querySelectorAll('.js-btn-add')
+	let buttonsTglOne = document.querySelectorAll('.js-btn-tgl-one');
+	for (i = 0;i < tglButtons.length;i++) {
+		tglButtons[i].addEventListener('click', function(e) {
+			this.classList.contains('active') ? this.classList.remove('active') : this.classList.add('active')
+			e.preventDefault()
+			return false
+		})
+	}
+	for (i = 0;i < addButtons.length;i++) {
+		addButtons[i].addEventListener('click', function(e) {
+			if (!this.classList.contains('active')) {
+				this.classList.add('active');
+				e.preventDefault()
+				return false
+			}
+		})
+	}
+	buttonsTglOne.forEach(function(button) {
+		button.addEventListener('click', function(e) {
+			e.preventDefault();
+			let toggleButtonsWrap = this.closest('.js-toggle-buttons');
+	
+			if (this.classList.contains('active')) {
+				this.classList.remove('active');
+			} else {
+				toggleButtonsWrap.querySelectorAll('.js-btn-tgl-one').forEach(function(btn) {
+					btn.classList.remove('active');
+				});
+				this.classList.add('active');
+			}
+			return false;
+		});
+	});
+
+
 	//select
 	const singleSelects = document.querySelectorAll('.frm-field-input select:not([multiple])');
 	const multiSelects = document.querySelectorAll('.frm-field-input select[multiple]');
@@ -165,6 +298,57 @@ document.addEventListener("DOMContentLoaded", function() {
 			return false;
 		});
 	});
+
+
+	//js tabs
+	const tabsNav = document.querySelectorAll('.js-tabs-nav')
+	const tabsBlocks = document.querySelectorAll('.js-tab-block')
+	const tabsButtonTitle = document.querySelectorAll('.js-tab-title')
+	const tabsButtonContent = document.querySelectorAll('.js-tab-content')
+	function tabsActiveStart() {
+		for (iTab = 0; iTab < tabsBlocks.length; iTab++) {
+			if (tabsBlocks[iTab].classList.contains('active')) {
+				tabsBlocks[iTab].classList.remove('active')
+			}
+		}
+		for (i = 0; i < tabsNav.length; i++) {
+			let tabsNavElements = tabsNav[i].querySelectorAll('[data-tab]')
+			for (iElements = 0; iElements < tabsNavElements.length; iElements++) {
+				if (tabsNavElements[iElements].classList.contains('active')) {
+					let tabsNavElementActive = tabsNavElements[iElements].dataset.tab
+					for (j = 0; j < tabsBlocks.length; j++) {
+						if (tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive) > -1) {
+							console.log(tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive))
+							tabsBlocks[j].classList.add('active')
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	for (i = 0; i < tabsButtonTitle.length; i++) {
+		tabsButtonTitle[i].addEventListener('click', function (e) {
+			this.classList.toggle('active')
+			e.preventDefault()
+			e.stopPropagation()
+			return false
+		})
+	}
+	for (i = 0; i < tabsNav.length; i++) {
+		tabsNav[i].addEventListener('click', function (e) {
+			if (e.target.closest('[data-tab]')) {
+				let tabsNavElements = this.querySelector('[data-tab].active')
+				tabsNavElements ? tabsNavElements.classList.remove('active') : false
+				e.target.closest('[data-tab]').classList.add('active')
+				tabsActiveStart()
+				e.preventDefault()
+				e.stopPropagation()
+				return false
+			}
+		})
+	}
+	tabsActiveStart()
 
 	//js popup wrap
 	const togglePopupButtons = document.querySelectorAll('.js-btn-popup-toggle')
@@ -360,4 +544,33 @@ document.addEventListener("DOMContentLoaded", function() {
 	// 	});
 	// });
 
+
+
+	//slider
+	const sliderssection = document.querySelectorAll(".slider-section");
+	
+	sliderssection.forEach((container) => {
+		const swiperEl = container.querySelector(".swiper");
+		const nextEl = container.querySelector(".button-slider-section-next");
+		const prevEl = container.querySelector(".button-slider-section-prev");
+	
+		if (!swiperEl) return;
+	
+		new Swiper(swiperEl, {
+			loop: false,
+			slidesPerGroup: 1,
+			slidesPerView: 'auto',
+			spaceBetween: 0,
+			autoHeight: false,
+			speed: 400,
+			pagination: false,
+			autoplay: false,
+			navigation: {
+				nextEl: nextEl,
+				prevEl: prevEl,
+			},
+		});
+	});
+
 })
+
