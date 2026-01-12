@@ -4824,6 +4824,169 @@ html.with-fancybox body.hide-scrollbar {
 /* ----------------------------------- *\
 			content styles
 \* ----------------------------------- */
+.matrix-box {
+  margin-bottom: 30px;
+  position: relative;
+}
+.matrix-box .tbl-button {
+  width: 24px;
+  height: 24px;
+  z-index: 8;
+  position: absolute;
+  top: 30px;
+  left: 50dvw;
+  margin-top: -12px;
+}
+.matrix-box .tbl-button.button-disabled {
+  display: none;
+}
+.matrix-box .tbl-button-next {
+  left: auto;
+  right: 10px;
+}
+.matrix-box .tbl-outer-wrap {
+  margin-left: 0;
+  margin-right: calc(var(--paddingContainer) * -1);
+  padding-right: var(--paddingContainer);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.matrix-box .tbl-outer-wrap::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.matrix-box table {
+  margin: 0 0 0 -5px;
+  border-spacing: 5px 10px;
+  border-collapse: separate;
+  table-layout: fixed;
+}
+.matrix-box table .col-main,
+.matrix-box table .col-header {
+  width: calc(50dvw - var(--paddingContainer) - 3px);
+}
+.matrix-box table th,
+.matrix-box table td {
+  padding: 0;
+  vertical-align: top;
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--clr-base);
+  letter-spacing: normal;
+}
+.matrix-box table th:first-child,
+.matrix-box table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+.matrix-box table th:first-child .tbl-content,
+.matrix-box table td:first-child .tbl-content {
+  z-index: 4;
+  position: relative;
+}
+.matrix-box table th:first-child:before,
+.matrix-box table td:first-child:before {
+  z-index: 2;
+}
+.matrix-box tbody th,
+.matrix-box tbody td {
+  position: relative;
+}
+.matrix-box tbody th:before,
+.matrix-box tbody td:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0 0 var(--mainRadius) var(--mainRadius);
+  background: linear-gradient(96deg, #E6EAFF 4.96%, #E7F9FF 118.57%);
+}
+.matrix-box tr:nth-child(2n) th:before,
+.matrix-box tr:nth-child(2n) td:before {
+  background: linear-gradient(270deg, #E9FFF9 0%, #CEFFF2 100%);
+}
+.matrix-box tr:nth-child(3n) th:before,
+.matrix-box tr:nth-child(3n) td:before {
+  background: linear-gradient(270deg, #FFFAF6 0%, #FFF3E9 100%);
+}
+.matrix-box .thead-title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  text-align: center;
+  height: 100%;
+  min-height: 40px;
+  padding: 5px 40px;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 600;
+  border-radius: var(--mainRadius) var(--mainRadius) 0 0;
+  background: linear-gradient(180deg, #FFF 0%, #F3F4F6 100%);
+  box-shadow: 0 -6px 14px -6px rgba(24, 39, 75, 0.12);
+  margin-bottom: -10px;
+}
+.matrix-box .tbl-content {
+  height: 100%;
+  padding: 15px 5px;
+  position: relative;
+  z-index: 3;
+  min-height: 100%;
+}
+.matrix-box .th-title {
+  display: block;
+  line-height: 1.35;
+  font-weight: 400;
+  margin: 0;
+  font-family: 'Unbounded', sans-serif;
+}
+.matrix-box .th-title * {
+  font-family: 'Unbounded', sans-serif;
+}
+.matrix-box .td-element {
+  display: block;
+  position: relative;
+  padding: 10px 5px;
+  background: var(--clr-bg-white);
+  border-radius: 12px;
+  margin-bottom: 5px;
+  color: var(--clr-base);
+}
+.matrix-box .td-element:hover {
+  color: var(--clr-base);
+}
+.matrix-box .td-element:last-child {
+  margin-bottom: 0;
+}
+.matrix-box .td-title {
+  display: block;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  letter-spacing: -0.01em;
+}
+.matrix-box .td-title:last-child {
+  margin-bottom: 0;
+}
+.matrix-box .td-title a {
+  display: block;
+}
+.matrix-box .td-title a:not(:hover) {
+  color: inherit;
+}
+.matrix-box .td-info {
+  line-height: 1;
+  color: var(--clr-base-light);
+}
 .sections-slider-box {
   margin-bottom: 30px;
   position: relative;
@@ -6442,6 +6605,15 @@ html.with-fancybox body.hide-scrollbar {
     width: 100%;
   }
 }
+@media (min-width: 480px) {
+  .matrix-box .tbl-button-prev {
+    left: 240px;
+  }
+  .matrix-box table .col-main,
+  .matrix-box table .col-header {
+    width: 222px;
+  }
+}
 @media (min-width: 420px) and (max-width: 767px) {
   .section-inner-wrap.section-form-content {
     margin-left: 10px;
@@ -6871,6 +7043,23 @@ html.with-fancybox body.hide-scrollbar {
   }
 }
 @media (min-width: 1024px) {
+  .matrix-box .tbl-button-prev {
+    left: 210px;
+  }
+  .matrix-box .tbl-button-next {
+    right: 20px;
+  }
+  .matrix-box table .col-header {
+    width: 191px;
+  }
+  .matrix-box table .col-main {
+    width: auto;
+    min-width: 191px;
+  }
+  .matrix-box .thead-title {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .title-box .title-user-wrap {
     display: -ms-flexbox;
     display: flex;
@@ -7112,6 +7301,43 @@ html.with-fancybox body.hide-scrollbar {
   }
 }
 @media (min-width: 1400px) {
+  .matrix-box .tbl-button-prev {
+    left: 290px;
+    top: 35px;
+  }
+  .matrix-box .tbl-button-next {
+    right: 20px;
+    top: 35px;
+  }
+  .matrix-box .tbl-outer-wrap {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .matrix-box table .col-header {
+    width: 271px;
+  }
+  .matrix-box table .col-main {
+    min-width: 271px;
+  }
+  .matrix-box .thead-title {
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 50px;
+    padding: 10px 25px;
+  }
+  .matrix-box .tbl-content {
+    padding: 15px 10px;
+  }
+  .matrix-box .td-element {
+    padding: 10px;
+  }
+  .matrix-box .th-title {
+    font-size: 14px;
+    padding: 15px;
+  }
+  .matrix-box tr:first-child .tbl-content {
+    padding-top: 24px;
+  }
   .sections-slider-box .slider {
     margin: 0 -15px;
     gap: 30px 0;
