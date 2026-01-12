@@ -572,5 +572,32 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	});
 
+	//slider tiles
+	const sliderstiles = document.querySelectorAll(".slider-tiles");
+	
+	sliderstiles.forEach((container) => {
+		const swiperEl = container.querySelector(".swiper");
+		const paginationEl = container.querySelector(".slider-tiles-pagination");
+		const nextEl = container.querySelector(".button-slider-tiles-next");
+		const prevEl = container.querySelector(".button-slider-tiles-prev");
+	
+		if (!swiperEl) return;
+	
+		new Swiper(swiperEl, {
+			loop: false,
+			slidesPerGroup: 1,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			autoHeight: false,
+			speed: 400,
+			pagination:false,
+			autoplay: false,
+			navigation: {
+				nextEl: nextEl,
+				prevEl: prevEl,
+			},
+		});
+	});
+
 })
 

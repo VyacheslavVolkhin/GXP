@@ -1036,6 +1036,9 @@ table {
 		justify-content: center;
 		margin: 0 !important;
 	}
+	&:has(.swiper-button-disabled~.swiper-button-disabled) {
+		display: none;
+	}
 }
 .slider-wrap {
 	margin: 0 calc(-1 * var(--gapMainHalf));

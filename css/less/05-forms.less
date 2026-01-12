@@ -457,6 +457,22 @@
 			background-image: url(../img/icons/calendar.svg);
 		}
 	}
+	.field-date-title {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 0;bottom: 0;left: 0;
+		width: 35px;
+		text-align: right;
+		z-index: 2;
+		pointer-events: none;
+		color: var(--clr-base);
+		justify-content: flex-end;
+		padding: 0;
+		&~.form-input {
+			padding-left: 45px;
+		}
+	}
 	&.inp-error {
 		.form-input {
 			border-color: #f00;
@@ -512,6 +528,9 @@
 		top: 50%;right: 27px;
 		margin: -20px -20px 0 0;
 		z-index: 2;
+		&.btn-action-ico {
+			margin: -20px -20px 0 0;
+		}
 		&:not(:hover) {
 			&:before {
 				filter: var(--filterAttToLight);
@@ -787,6 +806,18 @@
 	}
 }
 body {
+	.select-multilines {
+		.choices__item--selectable {
+			white-space: normal;
+			line-height: 1.45;
+		}
+		.choices__inner {
+			height: auto;
+			min-height: 54px;
+			padding-top: 11px !important;
+			padding-bottom: 11px !important;
+		}
+	}
 	.choices {
 		font-size: 14px;;
 	}
