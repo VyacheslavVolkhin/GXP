@@ -599,5 +599,32 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	});
 
+
+	//slider table
+	const sliderstable = document.querySelectorAll(".slider-table");
+	
+	sliderstable.forEach((container) => {
+		const swiperEl = container.querySelector(".swiper");
+		const nextEl = container.querySelector(".button-slider-table-next");
+		const prevEl = container.querySelector(".button-slider-table-prev");
+	
+		if (!swiperEl) return;
+	
+		new Swiper(swiperEl, {
+			loop: false,
+			slidesPerGroup: 1,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			autoHeight: false,
+			speed: 400,
+			pagination: false,
+			autoplay: false,
+			navigation: {
+				nextEl: nextEl,
+				prevEl: prevEl,
+			},
+		});
+	});
+
 })
 
