@@ -537,11 +537,11 @@
 	}
 	.tile-step {
 		height: 1px;
-		background: #f0f0f0;
+		background: var(--clr-att);
 		display: block;
 		flex: 1;
 		&.active {
-			background: var(--clr-att);
+			background: var(--clr-alert);
 		}
 	}
 	.tile-time-value {
@@ -2029,6 +2029,7 @@
 	position: relative;
 	max-width: 100%;
 	overflow: hidden;
+	flex-shrink: 0;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	background: #000;

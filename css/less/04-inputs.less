@@ -194,6 +194,9 @@ select.form-input:required:invalid {
 			}
 		}
 	}
+	[data-title-mobile]:before {
+		content: attr(data-title-mobile);
+	}
 }
 .button-second {
 	border-color: #DFF6FF;
@@ -605,5 +608,12 @@ button.btn-action-ico:not(.btn) {
 	.button-select {
 		padding: 0 20px;
 		font-size: 14px;
+	}
+}
+@media (min-width: 1024px) {
+	.btn {
+		[data-title-desktop]:before {
+			content: attr(data-title-desktop);
+		}
 	}
 }

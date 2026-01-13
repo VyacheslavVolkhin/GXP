@@ -1749,13 +1749,13 @@ html.with-fancybox body.hide-scrollbar {
 }
 .item-tile-question .tile-step {
   height: 1px;
-  background: #f0f0f0;
+  background: var(--clr-att);
   display: block;
   -ms-flex: 1;
       flex: 1;
 }
 .item-tile-question .tile-step.active {
-  background: var(--clr-att);
+  background: var(--clr-alert);
 }
 .item-tile-question .tile-time-value {
   font-weight: 400;
@@ -3454,6 +3454,8 @@ html.with-fancybox body.hide-scrollbar {
   position: relative;
   max-width: 100%;
   overflow: hidden;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   background: #000;
@@ -6248,6 +6250,9 @@ html.with-fancybox body.hide-scrollbar {
   padding: 0 8px;
   width: 50%;
 }
+.section-inner-wrap .items-wrap:has(.item-tile-activity) {
+  gap: 16px 0;
+}
 .section-inner-wrap .slider-wrap {
   margin: 0 -8px;
 }
@@ -7750,6 +7755,9 @@ select.form-input:required:invalid {
 .btn [disabled].button-border:after {
   filter: var(--filterAttToLight);
 }
+.btn [data-title-mobile]:before {
+  content: attr(data-title-mobile);
+}
 .button-second {
   border-color: #DFF6FF;
   background-color: #DFF6FF;
@@ -8141,6 +8149,11 @@ button.btn-action-ico:not(.btn) {
   .button-select {
     padding: 0 20px;
     font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .btn [data-title-desktop]:before {
+    content: attr(data-title-desktop);
   }
 }
 /* ----------------------------------- *\
