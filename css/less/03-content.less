@@ -107,19 +107,22 @@
 	margin-bottom: 30px;
 	position: relative;
 	.tbl-button {
-		width: 24px;height: 24px;
+		width: 32px;height: 32px;
 		z-index: 8;
 		position: absolute;
 		top: 30px;
 		left: 50dvw;
-		margin-top: -12px;
+		margin-top: -16px;
 		&.button-disabled {
 			display: none;
+		}
+		&:before {
+			background-size: 20px auto;
 		}
 	}
 	.tbl-button-next {
 		left: auto;
-		right: 10px;;
+		right: 6px;;
 	}
 	.tbl-outer-wrap {
 		margin-left: 0;
@@ -268,6 +271,11 @@
 	.td-info {
 		line-height: 1;
 		color: var(--clr-base-light);
+	}
+	.btn-action-ico.ico-arrow {
+		border-radius: 50%;
+		background: var(--clr-bg-white);
+		box-shadow: 0 0 10px fade(#000, 30);
 	}
 }
 .sections-slider-box {
